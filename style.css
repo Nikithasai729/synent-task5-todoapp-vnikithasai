@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.7)),
+    url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+}
+
+/* Floating Card */
+.container {
+  width: 100%;
+  max-width: 540px;
+}
+
+.todo-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  padding: 35px;
+  color: #ffffff;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  animation: fadeUp 0.5s ease;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.subtitle {
+  text-align: center;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 28px;
+  font-size: 15px;
+}
+
+/* Input section */
+.input-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 15px;
+  background: rgba(255,255,255,0.16);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+#addBtn {
+  width: 60px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#addBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.5);
+}
+
+/* Task List */
+#taskList {
+  list-style: none;
+}
+
+.task {
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.task:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.18);
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-left span {
+  font-size: 15px;
+  word-break: break-word;
+}
+
+.task-left input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #60a5fa;
+}
+
+/* Completed task */
+.completed span {
+  text-decoration: line-through;
+  opacity: 0.65;
+}
+
+/* Delete Button */
+.delete-btn {
+  border: none;
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background: rgb(220, 38, 38);
+  transform: scale(1.05);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  margin: 28px 0;
+  color: rgba(255,255,255,0.85);
+}
+
+.empty-state h3 {
+  margin-bottom: 6px;
+}
+
+/* Bottom section */
+.bottom-section {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+#taskCount {
+  font-size: 15px;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Filter buttons */
+.filters {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  transition: 0.3s;
+}
+
+.filter-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+  color: white;
+}
+
+/* Footer */
+.footer-text {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .todo-card {
+    padding: 28px 22px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .bottom-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters {
+    justify-content: center;
+  }
+}
